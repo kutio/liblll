@@ -11,7 +11,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-# Authors : kutio <kutioo@gmail.com>
+# Authors : kutio <kutioo[.at.]gmail[.dot.]com>
 
 
 from fractions import Fraction
@@ -142,8 +142,6 @@ def best_vect_knapsack(n):
             best_vect[j] = 1
           elif n[j][i] == 0:
             best_vect[j] = 0
-          else:
-            print "it's impossible to have a best vector different of 0 or 1 for a knapsack solution"
         break;
 
   for i in xrange(row-1):
