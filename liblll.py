@@ -46,6 +46,11 @@ def print_mat(n):
     row_str = " ".join(["%s" % f for f in row])
     print row_str
 
+# display vector
+def print_vector(v):
+  row_str = " ".join("%s" % i for i in v)
+  print row_str
+
 # get vector j in the matrix n
 def get_vector(n, j):
   res = []
@@ -119,6 +124,42 @@ def create_matrix(n):
   res = [ [Fraction(n[i][j]) for j in xrange(col) ] for i in xrange(row)]
   return res
 
+
+# [ 0, 2, -1, ... , 0, 1 ] + [1, -2, 2, ..., 0, -1] = [ 1, 0, 1, ..., 0, 0]  
+def heuristic_u_plus_v(n):
+  row = len(n)
+  col = len(n[0])
+
+  #negative vectors
+  minus_1_tab = []
+
+  #positive vectors
+  plus_1_tab = []
+
+
+  # this vector finishes with -1
+  minus_1_vect = [ 0 for i in xrange(row) ]
+
+  # this vector finishes with 1
+  plus_1_vect = [ 0 for i in xrange(row) ]
+
+  for i in xrange(row):
+    if n[row-1][i] == 1:
+      for j in xrange(row):
+        plus_1_vect[j] = int(n[j][i])
+
+      if plus_1_vect not in plus_1_tab:
+        plus_1_tab.append(plus_1_vect)
+
+    elif n[row-1][i] == -1:
+      for j in xrange(row):
+        minus_1_vect[j] = int(n[j][i])
+
+      if minus_1_vect not in minus_1_tab:
+        minus_1_tab.append(minus_1_vect)
+
+  return vector_add(minus_1_vect, plus_1_vect)[:-1]
+
 # retrieve the best vector for knapsack
 def best_vect_knapsack(n):
   row = len(n)
@@ -144,8 +185,23 @@ def best_vect_knapsack(n):
             best_vect[j] = 0
         break;
 
-  for i in xrange(row-1):
-    solution[i] = best_vect[i]
+  apply_heuristic = True
+  for i in xrange(row):
+    if best_vect[i] != 0:
+      apply_heuristic = False
+
+  if apply_heuristic:
+    print "No direct solution found, apply heuristic"
+    solution = heuristic_u_plus_v(n)
+    for i in xrange(len(solution)):
+      if solution[i] != 1:
+        if solution[i] != 0:
+          # apply complement
+          print "no solution found with heuristics"
+          return [0]*row
+  else:
+    for i in xrange(row-1):
+      solution[i] = best_vect[i]
 
   return solution
 
