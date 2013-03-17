@@ -6,7 +6,7 @@ print "mat1 : "
 print_mat(mat1)
 print "mat1 is lll ? ", islll(mat1)
 print "reduce mat : "
-mat1pass =  lll_reduction(mat1)
+mat1pass = lll_reduction(mat1)
 print_mat(mat1pass)
 print "mat1 is lll ? ", islll(mat1pass)
 print "\n"
@@ -18,7 +18,7 @@ print "mat2 : "
 print_mat(mat2)
 print "mat2 is lll ? ", islll(mat2)
 print "reduce mat : "
-mat2pass =  lll_reduction(mat2)
+mat2pass = lll_reduction(mat2)
 print_mat(mat2pass)
 print "mat2 is lll ? ", islll(mat2pass)
 print "\n"
@@ -30,7 +30,7 @@ print "mat3 : "
 print_mat(mat3)
 print "mat3 is lll ? ", islll(mat3)
 print "reduce mat : "
-mat3pass =  lll_reduction(mat3)
+mat3pass = lll_reduction(mat3)
 print_mat(mat3pass)
 print "mat3 is lll ? ", islll(mat3pass)
 print "\n"
@@ -42,7 +42,7 @@ print "mat4 : "
 print_mat(mat4)
 print "mat4 is lll ? ", islll(mat4)
 print "reduce mat : "
-mat4pass =  lll_reduction(mat4)
+mat4pass = lll_reduction(mat4)
 print_mat(mat4pass)
 print "mat4 is lll ? ", islll(mat4pass)
 print "\n"
@@ -54,7 +54,7 @@ print "mat5 : "
 print_mat(mat5)
 print "mat5 is lll ? ", islll(mat5)
 print "reduce mat : "
-mat5pass =  lll_reduction(mat5)
+mat5pass = lll_reduction(mat5)
 print_mat(mat5pass)
 print "mat5 is lll ? ", islll(mat5pass)
 print "\n"
@@ -66,7 +66,7 @@ print "mat6 : "
 print_mat(mat6)
 print "mat6 is lll ? ", islll(mat6)
 print "reduce mat : "
-mat6pass =  lll_reduction(mat6)
+mat6pass = lll_reduction(mat6)
 print_mat(mat6pass)
 print "mat6 is lll ? ", islll(mat6pass)
 print "\n"
@@ -78,7 +78,7 @@ print "mat7 : "
 print_mat(mat7)
 print "mat7 is lll ? ", islll(mat7)
 print "reduce mat : "
-mat7pass =  lll_reduction(mat7)
+mat7pass = lll_reduction(mat7)
 print_mat(mat7pass)
 print "mat7 is lll ? ", islll(mat7pass)
 print "\n"
@@ -91,7 +91,7 @@ print "mat8 : "
 print_mat(mat8)
 print "mat8 is lll ? ", islll(mat8)
 print "reduce mat : "
-mat8pass =  lll_reduction(mat8)
+mat8pass = lll_reduction(mat8)
 print_mat(mat8pass)
 print "mat8 is lll ? ", islll(mat8pass)
 print "\n"
@@ -103,7 +103,7 @@ print "mat9 : "
 print_mat(mat9)
 print "mat9 is lll ? ", islll(mat9)
 print "reduce mat : "
-mat9pass =  lll_reduction(mat9)
+mat9pass = lll_reduction(mat9)
 print_mat(mat9pass)
 print "mat9 is lll ? ", islll(mat9pass)
 print "\n"
@@ -116,7 +116,7 @@ print "mat10 : "
 print_mat(mat10)
 print "mat10 is lll ? ", islll(mat10)
 print "reduce mat : "
-mat10pass =  lll_reduction(mat10)
+mat10pass = lll_reduction(mat10)
 print_mat(mat10pass)
 print "mat10 is lll ? ", islll(mat10pass)
 print "\n"

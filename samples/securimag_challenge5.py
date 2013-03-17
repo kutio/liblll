@@ -7,12 +7,12 @@ my_sum = [85665597416613316, 68924182376697138, 93855260302436631, 6706911278780
 
 f = open("solution", "w")
 for the_sum in my_sum:
-  mat = create_matrix_from_knapsack(pubkey, the_sum)
-  mat_red = lll_reduction(mat)
-  best_vector = best_vect_knapsack(mat_red)
-  str_best_vector = "".join(map(str, best_vector))
-  my_str = "".join(chr(int(str_best_vector[i:i+8], 2)) for i in xrange(0, len(pubkey), 8))
-  f.write(my_str)
-  print best_vector
+    mat = create_matrix_from_knapsack(pubkey, the_sum)
+    mat_red = lll_reduction(mat)
+    best_vector = best_vect_knapsack(mat_red)
+    str_best_vector = "".join(map(str, best_vector))
+    my_str = "".join(chr(int(str_best_vector[i:i+8], 2)) for i in xrange(0, len(pubkey), 8))
+    f.write(my_str)
+    print best_vector
 
 f.close()

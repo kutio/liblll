@@ -12,35 +12,35 @@ best_vect = best_vect_knapsack(mat_reduced)
 # try complementary ?
 apply_complementary = True
 for i in xrange(len(best_vect)):
-  if best_vect[i] != 0:
-    apply_complementary = False
+    if best_vect[i] != 0:
+        apply_complementary = False
 
 if apply_complementary:
-  print "try complementary lattice"
-  total_sum = 0
-  for i in xrange(len(pubkey)):
-    total_sum += pubkey[i]
+    print "try complementary lattice"
+    total_sum = 0
+    for i in xrange(len(pubkey)):
+        total_sum += pubkey[i]
 
-  mat = create_matrix_from_knapsack(pubkey, total_sum-the_sum)
-  mat_reduced = lll_reduction(mat)
+    mat = create_matrix_from_knapsack(pubkey, total_sum-the_sum)
+    mat_reduced = lll_reduction(mat)
 
-  best_vect = best_vect_knapsack(mat_reduced)
+    best_vect = best_vect_knapsack(mat_reduced)
 
-  my_sum = 0
-  for i in xrange(len(pubkey)):
-    if best_vect[i] == 0:
-      my_sum += pubkey[i]
-  
-  print "Verification :"
-  print "my_sum = %ld, the_sum = %ld" % (my_sum, the_sum)
+    my_sum = 0
+    for i in xrange(len(pubkey)):
+        if best_vect[i] == 0:
+            my_sum += pubkey[i]
+    
+    print "Verification :"
+    print "my_sum = %ld, the_sum = %ld" % (my_sum, the_sum)
 
 else:
-  my_sum = 0
-  for i in xrange(len(pubkey)):
-    if best_vect[i] == 1:
-      my_sum += pubkey[i]
-  
-  print "Verification :"
-  print "my_sum = %ld, the_sum = %ld" % (my_sum, the_sum)
+    my_sum = 0
+    for i in xrange(len(pubkey)):
+        if best_vect[i] == 1:
+            my_sum += pubkey[i]
+    
+    print "Verification :"
+    print "my_sum = %ld, the_sum = %ld" % (my_sum, the_sum)
 
 print "best_vect = ", best_vect
