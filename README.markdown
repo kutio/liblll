@@ -1,9 +1,9 @@
 # LibLLL
 
-LibLLL 0.1 seems to work with python > 2.7 ( some bugs in the 
-fractions module in previous version )
+LibLLL 0.1 seems to work with python from 2.7 (some bugs in the 
+fractions module in previous version) to python 3.2.
 LibLLL is not the faster LLL algorithm but it seems to work, 
-if you want to improve it ! don't hesitate :)
+if you want to improve it -- don't hesitate :)
 
 ## Quick start
 

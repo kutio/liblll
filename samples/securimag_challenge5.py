@@ -11,8 +11,8 @@ for the_sum in my_sum:
     mat_red = lll_reduction(mat)
     best_vector = best_vect_knapsack(mat_red)
     str_best_vector = "".join(map(str, best_vector))
-    my_str = "".join(chr(int(str_best_vector[i:i+8], 2)) for i in xrange(0, len(pubkey), 8))
+    my_str = "".join(chr(int(str_best_vector[i:i+8], 2)) for i in range(0, len(pubkey), 8))
     f.write(my_str)
-    print best_vector
+    print(best_vector)
 
 f.close()
