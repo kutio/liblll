@@ -46,7 +46,6 @@ def print_mat(n):
         for f in row:
             if len(str(f)) > maxlen:
                 maxlen = len(str(f))
-    print("Maxlen= " + str(maxlen))
     for row in n:
         row_str = ""
         for f in row:
@@ -55,7 +54,6 @@ def print_mat(n):
             for i in range(difflen):
                 sep = sep + " "
             row_str = row_str + sep + str(f)
-        #row_str = " ".join(["%s" % f for f in row])
         print(row_str)
 
 # display vector
