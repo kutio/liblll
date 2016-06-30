@@ -41,8 +41,19 @@ def scalar_product(a, b):
 
 # display matrix
 def print_mat(n):
+    maxlen = 0
     for row in n:
-        row_str = " ".join(["%s" % f for f in row])
+        for f in row:
+            if len(str(f)) > maxlen:
+                maxlen = len(str(f))
+    for row in n:
+        row_str = ""
+        for f in row:
+            difflen = maxlen - len(str(f))
+            sep = " "
+            for i in range(difflen):
+                sep = sep + " "
+            row_str = row_str + sep + str(f)
         print(row_str)
 
 # display vector
