@@ -256,9 +256,9 @@ def lll_reduction(n, lc=Fraction(3, 4)):
     col = len(n[0])
 
     m = [ [Fraction(0) for j in range(col) ] for i in range(row)]
-    mu = [ [Fraction(0) for j in range(col) ] for i in range(row)]
+    mu = [ [Fraction(0) for j in range(col) ] for i in range(col)]
     g = [ [n[i][j] for j in range(col) ] for i in range(row)]
-    B = [ Fraction(0) for j in range(row) ]
+    B = [ Fraction(0) for j in range(col) ]
 
     gram_schmidt(g, m, mu, B)
 
@@ -324,8 +324,8 @@ def islll(n, lc=Fraction(3, 4)):
     col = len(n[0])
 
     m = [ [Fraction(0) for j in range(col) ] for i in range(row)]
-    mu = [ [Fraction(0) for j in range(col) ] for i in range(row)]
-    B = [ Fraction(0) for j in range(row) ]
+    mu = [ [Fraction(0) for j in range(col) ] for i in range(col)]
+    B = [ Fraction(0) for j in range(col) ]
 
     gram_schmidt(n, m, mu, B)
 
