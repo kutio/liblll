@@ -207,9 +207,9 @@ def best_vect_knapsack(n):
 
 # gram schmidt algorithm
 def gram_schmidt(g, m, mu, B):
-    row = len(m)
+    col = len(g[0])
 
-    for i in range(row):
+    for i in range(col):
         # bi* = bi
         b_i = get_vector(g, i)
         b_i_star = b_i
@@ -300,7 +300,7 @@ def lll_reduction(n, lc=Fraction(3, 4)):
                 mu[k-1][j] = mu[k][j]
                 mu[k][j] = save
 
-            for i in range(k+1, row):
+            for i in range(k+1, col):
                 save = mu[i][k-1]
                 mu[i][k-1] = mu[k][k-1]*mu[i][k-1] + mu[i][k] - u*mu[i][k]*mu[k][k-1]
                 mu[i][k] = save - u*mu[i][k]
@@ -313,7 +313,7 @@ def lll_reduction(n, lc=Fraction(3, 4)):
             for l in range(k-2, -1, -1):
                 reduce(g, mu, k, l)
 
-            if k == row-1:
+            if k == col-1:
                 return g
 
             k = k + 1
@@ -329,12 +329,12 @@ def islll(n, lc=Fraction(3, 4)):
 
     gram_schmidt(n, m, mu, B)
 
-    for i in range(row):
+    for i in range(col):
         for j in range(i):
             if math.fabs(mu[i][j]) > Fraction(1, 2):
                 return False
 
-    for k in range(1, row):
+    for k in range(1, col):
         if B[k] < (lc - mu[k][k-1]*mu[k][k-1])*B[k-1]:
             return False
     return True
