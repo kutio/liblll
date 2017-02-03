@@ -63,38 +63,23 @@ def print_vector(v):
 
 # get vector j in the matrix n
 def get_vector(n, j):
-    res = []
-    for i in range(len(n)):
-        res.append(n[i][j])
-    return res
+    return [ n[i][j] for i in range(len(n))]
 
 # vector substraction 
 def vector_add(a, b):
-    res = []
-    for i in range(len(a)):
-        res.append(a[i] + b[i])
-    return res
+    return [ a[i] + b[i] for i in range(len(a)) ]
 
 # vector substraction 
 def vector_sub(a, b):
-    res = []
-    for i in range(len(a)):
-        res.append(a[i] - b[i])
-    return res
+    return [ a[i] - b[i] for i in range(len(a)) ]
 
 # vector multiplication with a constant
 def vector_mult_const(v, k):
-    res = []
-    for i in range(len(v)):
-        res.append(v[i]*k)
-    return res
+    return [ v[i]*k for i in range(len(v)) ]
 
-# set vector j in the matrix n with vector v
+# set the k-th column of matrix n to the vector v
 def set_matrix_vector(n, k, v):
     row = len(n)
-    col = len(n[0])
- 
-    # edit the good column
     for i in range(row):
         n[i][k] = v[i]
         
@@ -233,7 +218,6 @@ def gram_schmidt(g, m, mu, B):
 # reduce
 def reduce(g, mu, k, l):
     row = len(g)
-    col = len(g[0])
 
     if math.fabs(mu[k][l]) > Fraction(1, 2):
         r = round(mu[k][l])
