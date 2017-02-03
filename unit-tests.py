@@ -135,6 +135,8 @@ class LLLTestCase(unittest.TestCase):
         self.second_sum = 68924182376697138
         self.best_vect_first_sum = [0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0]
         self.best_vect_second_sum = [0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1]
+        self.not_full_rank = [ [ 0, 17, 1], [10, 100, 80], [-9, 11, 76], [110, 50, 60]]
+        self.not_full_rank_reduced = [ [ -16, 0, 17], [-20, 10, 90], [65, -9, 20], [10, 110, -60]]
 
     def test_gram_schmidt(self):
         mu = [[Fraction(0), Fraction(0)], [Fraction(0), Fraction(0)]]
@@ -188,6 +190,14 @@ class LLLTestCase(unittest.TestCase):
         self.assertEqual(1, islll(second_mat_reduced)) 
         res = best_vect_knapsack(second_mat_reduced)
         self.assertEqual(self.best_vect_second_sum, res) 
+
+    def test_lll_reduction_not_full_rank(self):
+        basis = create_matrix(self.not_full_rank)
+        expected_reduced_basis = create_matrix(self.not_full_rank_reduced)
+        reduced_basis = lll_reduction(basis)
+        self.assertEqual(expected_reduced_basis, reduced_basis) 
+
+
 
 if __name__ == '__main__':
     unittest.main()
