@@ -63,38 +63,23 @@ def print_vector(v):
 
 # get vector j in the matrix n
 def get_vector(n, j):
-    res = []
-    for i in range(len(n)):
-        res.append(n[i][j])
-    return res
+    return [ n[i][j] for i in range(len(n))]
 
 # vector substraction 
 def vector_add(a, b):
-    res = []
-    for i in range(len(a)):
-        res.append(a[i] + b[i])
-    return res
+    return [ a[i] + b[i] for i in range(len(a)) ]
 
 # vector substraction 
 def vector_sub(a, b):
-    res = []
-    for i in range(len(a)):
-        res.append(a[i] - b[i])
-    return res
+    return [ a[i] - b[i] for i in range(len(a)) ]
 
 # vector multiplication with a constant
 def vector_mult_const(v, k):
-    res = []
-    for i in range(len(v)):
-        res.append(v[i]*k)
-    return res
+    return [ v[i]*k for i in range(len(v)) ]
 
-# set vector j in the matrix n with vector v
+# set the k-th column of matrix n to the vector v
 def set_matrix_vector(n, k, v):
     row = len(n)
-    col = len(n[0])
- 
-    # edit the good column
     for i in range(row):
         n[i][k] = v[i]
         
@@ -207,9 +192,9 @@ def best_vect_knapsack(n):
 
 # gram schmidt algorithm
 def gram_schmidt(g, m, mu, B):
-    row = len(m)
+    col = len(g[0])
 
-    for i in range(row):
+    for i in range(col):
         # bi* = bi
         b_i = get_vector(g, i)
         b_i_star = b_i
@@ -233,7 +218,6 @@ def gram_schmidt(g, m, mu, B):
 # reduce
 def reduce(g, mu, k, l):
     row = len(g)
-    col = len(g[0])
 
     if math.fabs(mu[k][l]) > Fraction(1, 2):
         r = round(mu[k][l])
@@ -256,9 +240,9 @@ def lll_reduction(n, lc=Fraction(3, 4)):
     col = len(n[0])
 
     m = [ [Fraction(0) for j in range(col) ] for i in range(row)]
-    mu = [ [Fraction(0) for j in range(col) ] for i in range(row)]
+    mu = [ [Fraction(0) for j in range(col) ] for i in range(col)]
     g = [ [n[i][j] for j in range(col) ] for i in range(row)]
-    B = [ Fraction(0) for j in range(row) ]
+    B = [ Fraction(0) for j in range(col) ]
 
     gram_schmidt(g, m, mu, B)
 
@@ -300,7 +284,7 @@ def lll_reduction(n, lc=Fraction(3, 4)):
                 mu[k-1][j] = mu[k][j]
                 mu[k][j] = save
 
-            for i in range(k+1, row):
+            for i in range(k+1, col):
                 save = mu[i][k-1]
                 mu[i][k-1] = mu[k][k-1]*mu[i][k-1] + mu[i][k] - u*mu[i][k]*mu[k][k-1]
                 mu[i][k] = save - u*mu[i][k]
@@ -313,7 +297,7 @@ def lll_reduction(n, lc=Fraction(3, 4)):
             for l in range(k-2, -1, -1):
                 reduce(g, mu, k, l)
 
-            if k == row-1:
+            if k == col-1:
                 return g
 
             k = k + 1
@@ -324,17 +308,17 @@ def islll(n, lc=Fraction(3, 4)):
     col = len(n[0])
 
     m = [ [Fraction(0) for j in range(col) ] for i in range(row)]
-    mu = [ [Fraction(0) for j in range(col) ] for i in range(row)]
-    B = [ Fraction(0) for j in range(row) ]
+    mu = [ [Fraction(0) for j in range(col) ] for i in range(col)]
+    B = [ Fraction(0) for j in range(col) ]
 
     gram_schmidt(n, m, mu, B)
 
-    for i in range(row):
+    for i in range(col):
         for j in range(i):
             if math.fabs(mu[i][j]) > Fraction(1, 2):
                 return False
 
-    for k in range(1, row):
+    for k in range(1, col):
         if B[k] < (lc - mu[k][k-1]*mu[k][k-1])*B[k-1]:
             return False
     return True
