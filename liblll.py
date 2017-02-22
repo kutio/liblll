@@ -130,7 +130,7 @@ def heuristic_u_plus_v(n):
     # this vector finishes with 1
     plus_1_vect = [ 0 for i in range(row) ]
 
-    for i in range(row):
+    for i in range(col):
         if n[row-1][i] == 1:
             for j in range(row):
                 plus_1_vect[j] = int(n[j][i])
@@ -154,11 +154,11 @@ def best_vect_knapsack(n):
     best_vect = [ 0 for i in range(row) ]
     solution = [ 0 for i in range(row-1) ]
 
-    for i in range(row):
+    for i in range(col):
         if n[row-1][i] == 0:
             take_it = 1
 
-            for j in range(col):
+            for j in range(row):
                 if n[j][i] != Fraction(1):
                     if n[j][i] != Fraction(0):
                         take_it = 0
